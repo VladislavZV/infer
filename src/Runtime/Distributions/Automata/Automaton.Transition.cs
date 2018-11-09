@@ -9,6 +9,7 @@ namespace Microsoft.ML.Probabilistic.Distributions.Automata
     using System.Runtime.Serialization;
     using System.Text;
 
+    using Microsoft.ML.Probabilistic.Core.Collections;
     using Microsoft.ML.Probabilistic.Distributions;
     using Microsoft.ML.Probabilistic.Math;
     using Microsoft.ML.Probabilistic.Serialization;
@@ -154,7 +155,7 @@ namespace Microsoft.ML.Probabilistic.Distributions.Automata
                 }
 
                 sb.Append('[');
-                sb.Append(this.ElementDistribution.HasValue ? "eps" : this.ElementDistribution.ToString());
+                sb.Append(this.ElementDistribution.HasValue ? this.ElementDistribution.ToString() : "eps");
                 sb.Append(']');
                 sb.Append(" " + this.Weight.Value);
                 sb.Append(" -> " + this.DestinationStateIndex);
